@@ -11,9 +11,9 @@ int findsmallest(int);
 
 int findsmallest(int number)
 {
+    int rem, min = 10;
     while (number != 0)
     {
-        int rem, min = 10;
         rem = number % 10;
         number = number / 10;
         if (min > rem)
@@ -26,9 +26,9 @@ int findsmallest(int number)
 
 int findlargest(int number)
 {
+    int rem, max = 0;
     while (number != 0)
     {
-        int rem, max = 0;
         rem = number % 10;
         number = number / 10;
         if (max > rem)
