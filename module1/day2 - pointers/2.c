@@ -7,3 +7,32 @@ Topics to be covered
 - Pointers
 - Bitwise Operators
 */
+
+#include <stdio.h>
+
+void printExponent(double num)
+{
+    long exponent;
+    char *ptr = (char *)&num;
+
+    exponent = ((long)ptr[7] & 0x7F) << 4;
+    exponent |= ((long)ptr[6] & 0xF0) >> 4;
+
+    printf("Exponent in hexadecimal", exponent);
+
+    printf("Exponent in binary");
+    for (int i = 10; i >= 0; i--)
+    {
+        long bit = (exponent >> i) & 1;
+        printf("%llu", bit);
+    }
+    printf("\n");
+}
+
+int main()
+{
+    double x = 0.7;
+    printExponent(x);
+
+    return 0;
+}
